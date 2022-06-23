@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body, iframe { height: 100%; padding: 0; margin: 0; overflow: hidden; }
+      iframe { width: 100%; padding: 0; border: 0; }
+    </style>
+    <title>info-beamer - Photopea Image Editor integration</title>
+  </head>
+  <body>
+    <iframe id='mainframe'></iframe>
+    <script>
+      let service = "https://info-beamer.com"
+      window.CONFIG = {
+        // Hosted backend config
+        api_root: `${service}/api/v1/`,
+        web_root: service,
+
+        // App config
+        app_root: location.pathname,
+
+        // OAuth
+        client_id: "3c8b9bf8f2bf4da48754cccb51c9e102",
+        redirect_uri: window.location.origin + '/',
+        authorization_endpoint: `${service}/oauth/authorize`,
+        token_endpoint: `${service}/oauth/token`,
+        requested_scopes: "asset:read asset:modify",
+      }
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
